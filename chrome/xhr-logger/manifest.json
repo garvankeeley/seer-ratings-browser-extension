@@ -1,0 +1,20 @@
+{
+  "manifest_version": 3,
+  "name": "XHR Logger",
+  "version": "1.0.0",
+  "description": "Intercepts all XMLHttpRequest calls and logs the URL, then lets requests proceed normally.",
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content-script.js"],
+      "run_at": "document_start",
+      "all_frames": true
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["injected.js"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}
