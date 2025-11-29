@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
-  "name": "XHR Logger (Firefox)",
+  "name": "Seer Ratings Overlay",
   "version": "1.0.0",
-  "description": "Intercepts all XMLHttpRequest calls and logs the URL, then lets requests proceed normally.",
+  "description": "Shows movie and tv show ratings as an overlay.",
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
@@ -19,8 +19,11 @@
   ],
   "browser_specific_settings": {
     "gecko": {
-      "id": "xhr-logger@example.com",
-      "strict_min_version": "109.0"
+      "id": "seer-ratings-overlay-gk@example.com",
+      "strict_min_version": "142.0",
+      "data_collection_permissions": {
+        "required": ["none"]
+      }
     }
   }
 }

@@ -12,7 +12,7 @@
     script.src = getURL ? getURL('injected.js') : 'injected.js';
     script.type = 'text/javascript';
     (document.documentElement || document.head || document.body).appendChild(script);
-    script.addEventListener('load', () => script.remove());
+    // script.addEventListener('load', () => script.remove());
   } catch (e) {
     console.warn('[XHR Logger] Failed to inject script:', e);
   }
