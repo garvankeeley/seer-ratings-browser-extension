@@ -1,6 +1,11 @@
-    (() => {
-  // Avoid double-installation if the page is re-injected (e.g., via iframes or SPA navigations)
-  if (window.__xhrLoggerInstalled || location.href.indexOf('vivobook') < 0) return;
+(() => {
+  
+  if (!['overseer', 'jellyseer'].some((e) => { document.title.toLowerCase().includes(e);} )) {
+    return;
+  }
+    
+    // Avoid double-installation if the page is re-injected (e.g., via iframes or SPA navigations)
+  if (window.__xhrLoggerInstalled) { return; }
   window.__xhrLoggerInstalled = true;
 
   const titleDate = (json) => {
@@ -107,6 +112,9 @@ function createOverlay(targetElement, text) {
 }
 
 async function main_seer() {
+  if (!['overseer', 'jellyseer'].some((e) => { document.title.toLowerCase().includes(e);} )) {
+    return;
+  }
   ////console.log('Starting movie score extraction...');
 
   const allMovieTitles = {};
