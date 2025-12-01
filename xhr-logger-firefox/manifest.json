@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Seer Ratings Overlay",
-  "version": "1.0.0",
+  "version": "1.0.5",
   "description": "Shows movie and tv show ratings as an overlay.",
   "content_scripts": [
     {
@@ -19,7 +19,7 @@
   ],
   "browser_specific_settings": {
     "gecko": {
-      "id": "seer-ratings-overlay-gk@example.com",
+      "id": "amanintoronto@smashmail.de",
       "strict_min_version": "142.0",
       "data_collection_permissions": {
         "required": ["none"]

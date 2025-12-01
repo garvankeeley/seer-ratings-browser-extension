@@ -1,9 +1,9 @@
+function isSeerPage() {
+  return ['overseerr', 'jellyseerr'].some((e) => { return document.title.toLowerCase().includes(e); });
+}
+
 (() => {
-  
-  if (!['overseer', 'jellyseer'].some((e) => { document.title.toLowerCase().includes(e);} )) {
-    return;
-  }
-    
+
     // Avoid double-installation if the page is re-injected (e.g., via iframes or SPA navigations)
   if (window.__xhrLoggerInstalled) { return; }
   window.__xhrLoggerInstalled = true;
@@ -26,6 +26,10 @@
       const resolvedUrl = (() => {
         try { return new URL(url, document.baseURI).href; } catch { return url; }
       })();
+
+      if (!isSeerPage()) {
+        return OriginalOpen.apply(this, arguments);
+      }
 
       const hasMatch = ['api/v1/tv/', 'api/v1/movie/', 'discover/trending', 'discover/movies', 'discover/tv']
         .some(pattern => resolvedUrl.includes(pattern));
@@ -112,9 +116,10 @@ function createOverlay(targetElement, text) {
 }
 
 async function main_seer() {
-  if (!['overseer', 'jellyseer'].some((e) => { document.title.toLowerCase().includes(e);} )) {
+  if (!isSeerPage()) {
     return;
   }
+
   ////console.log('Starting movie score extraction...');
 
   const allMovieTitles = {};

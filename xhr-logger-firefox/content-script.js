@@ -1,6 +1,10 @@
 // Injects code into the page's main world at document_start so it affects page XHR
 (() => {
   try {
+    if (!location.href.includes(':5055/')) {
+      return; 
+    } 
+
     const getURL =
       (typeof browser !== 'undefined' && browser.runtime && browser.runtime.getURL)
         ? browser.runtime.getURL
